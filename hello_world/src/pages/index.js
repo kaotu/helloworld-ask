@@ -2,12 +2,10 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 class IndexPage extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      count: 0,
-    }
+  state = {
+    count: 0,
   }
+
   handleClick = e => {
     this.setState({
       count: this.state.count + 1,
