@@ -6,9 +6,7 @@ import { Component } from 'react'
 
 @observer
 class IndexPage extends React.Component {
-  state = {
-    value: '',
-  }
+  @observable value = ''
 
   handleChange = e => {
     this.setState({
