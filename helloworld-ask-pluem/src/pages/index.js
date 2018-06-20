@@ -9,9 +9,6 @@ class IndexPage extends React.Component {
   @observable value = ''
 
   handleChange = e => {
-    // this.setState({
-    //   value: e.target.value,
-    // })
     this.value = e.target.value
   }
 
@@ -26,14 +23,10 @@ class IndexPage extends React.Component {
         <h1>ASK 3.0</h1>
         <form onSubmit={this.handleSubmit} action="/page-2/">
           <label>
-            <h5>
+            <h2>
               Question :
-              <input
-                type="text"
-                value={this.value}
-                onChange={this.handleChange}
-              />
-            </h5>
+              <textarea value={this.value} onChange={this.handleChange} />
+            </h2>
           </label>
           <input type="submit" value="Submit" />
         </form>
