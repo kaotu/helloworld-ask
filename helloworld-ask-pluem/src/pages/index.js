@@ -9,13 +9,14 @@ class IndexPage extends React.Component {
   @observable value = ''
 
   handleChange = e => {
-    this.setState({
-      value: e.target.value,
-    })
+    // this.setState({
+    //   value: e.target.value,
+    // })
+    this.value = e.target.value
   }
 
   handleSubmit = e => {
-    alert('A Question was submitted:' + this.state.value)
+    alert('A Question was submitted:' + this.value)
     e.perventDefault()
   }
 
