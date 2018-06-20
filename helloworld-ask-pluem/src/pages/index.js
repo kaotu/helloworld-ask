@@ -6,19 +6,21 @@ import { Component } from 'react'
 
 @observer
 class IndexPage extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { value: '' }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+  state = {
+    value: '',
   }
-  handleChange(event) {
-    this.setState({ value: event.target.value.toUpperCase() })
+
+  handleChange = e => {
+    this.setState({
+      value: e.target.value,
+    })
   }
-  handleSubmit(event) {
-    alert('A name was submitted:' + this.state.value)
-    event.perventDefault()
+
+  handleSubmit = e => {
+    alert('A Question was submitted:' + this.state.value)
+    e.perventDefault()
   }
+
   render() {
     return (
       <div>
@@ -26,10 +28,10 @@ class IndexPage extends React.Component {
         <form onSubmit={this.handleSubmit} action="/page-2/">
           <label>
             <h5>
-              Name :
+              Question :
               <input
                 type="text"
-                value={this.state.value}
+                value={this.value}
                 onChange={this.handleChange}
               />
             </h5>
