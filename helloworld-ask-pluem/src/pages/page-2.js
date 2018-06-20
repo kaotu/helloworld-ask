@@ -6,7 +6,7 @@ class AppState {
   @observable timer = 0
   constructor() {
     setInterval(() => {
-      this.timer += 1
+      store.timer += 1
     }, 1000)
   }
   @action.bound
@@ -15,11 +15,13 @@ class AppState {
   }
 }
 
-class TimerViewDisplay extends React.component {
+const store = new AppState()
+
+class TimerViewDisplay extends React.Component {
   render() {
     return (
       <div>
-        Timer : {AppState.timer}
+        Timer : {store.timer}
         <button onClick={AppState.reset}>reset timer</button>
       </div>
     )

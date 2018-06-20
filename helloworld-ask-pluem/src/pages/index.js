@@ -3,39 +3,42 @@ import Link from 'gatsby-link'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 import { Component } from 'react'
-
-const appState = observable({
-  count: 0,
-})
-appState.increment = function() {
-  this.count++
-}
-appState.decrement = function() {
-  this.count--
-}
-
+import { SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION } from 'constants'
 @observer
 class IndexPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { value: '' }
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  handleChange(event) {
+    this.setState({ value: event.target.value.toUpperCase() })
+  }
+  handleSubmit(event) {
+    alert('A name was submitted:' + this.state.value)
+    event.preventDefault()
+  }
   render() {
     return (
       <div>
         <h1>ASK 3.0</h1>
-        Counter : {appState.count}
-        <br />
-        <button onClick={this.handleDec}>-</button>
-        <button onClick={this.handleInc}>+</button>
-        <form action="/page-2/">
-          <input type="text" />
-          <input type="submit" />
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            <h5>
+              Name :
+              <input
+                type="text"
+                value={this.state.value}
+                onChange={this.handleChange}
+              />
+            </h5>
+          </label>
+          <input type="submit" value="Submit" />
         </form>
       </div>
     )
-  }
-  handleInc = () => {
-    appState.increment()
-  }
-  handleDec = () => {
-    appState.decrement()
   }
 }
 
