@@ -1,12 +1,29 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { observable, action } from 'mobx'
+import { observer } from 'mobx-react'
 
-const SecondPage = () => (
-  <div>
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </div>
-)
+class AppState {
+  @observable timer = 0
+  constructor() {
+    setInterval(() => {
+      this.timer += 1
+    }, 1000)
+  }
+  @action.bound
+  reset() {
+    this.timer = 0
+  }
+}
 
-export default SecondPage
+class TimerViewDisplay extends React.component {
+  render() {
+    return (
+      <div>
+        Timer : {AppState.timer}
+        <button onClick={AppState.reset}>reset timer</button>
+      </div>
+    )
+  }
+}
+
+export default TimerViewDisplay
