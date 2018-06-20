@@ -3,13 +3,12 @@ import Link from 'gatsby-link'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 import { Component } from 'react'
-import { SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION } from 'constants'
+
 @observer
 class IndexPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = { value: '' }
-
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -18,13 +17,13 @@ class IndexPage extends React.Component {
   }
   handleSubmit(event) {
     alert('A name was submitted:' + this.state.value)
-    event.preventDefault()
+    event.perventDefault()
   }
   render() {
     return (
       <div>
         <h1>ASK 3.0</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} action="/page-2/">
           <label>
             <h5>
               Name :
