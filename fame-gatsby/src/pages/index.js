@@ -17,6 +17,8 @@ class Question {
   }
 }
 
+const store = new Question()
+
 class IndexPage extends React.Component {
   render() {
     return (
