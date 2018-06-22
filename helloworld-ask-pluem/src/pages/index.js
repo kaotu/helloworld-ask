@@ -3,32 +3,53 @@ import Link from 'gatsby-link'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 import { Component } from 'react'
+import style from 'styled-components'
+import styled from 'styled-components'
+
+const Button = styled.button`
+  padding: 0.5em;
+  margin: 0.5em;
+  color: palevioletred;
+  background: papayawhip;
+  border: none;
+  border-radius: 3px;
+  &:hover {
+    background: #555;
+  }
+`
+class Question {
+  @observable question = ''
+
+  @action
+  handleChange = e => {
+    this[e.target.name] = e.target.value
+  }
+  @action
+  handleSubmit = e => {
+    e.preventDefault()
+    console.log('qestion : ', this.question)
+  }
+}
+
+const store = new Question()
 
 @observer
 class IndexPage extends React.Component {
-  @observable value = ''
-
-  handleChange = e => {
-    this.value = e.target.value
-  }
-
-  handleSubmit = e => {
-    alert('A Question was submitted:' + this.value)
-    e.perventDefault()
-  }
-
   render() {
     return (
       <div>
         <h1>ASK 3.0</h1>
-        <form onSubmit={this.handleSubmit} action="/page-2/">
+        question is:
+        <form action="" onSubmit={store.handleSubmit}>
           <label>
             <h2>
               Question :
-              <textarea value={this.value} onChange={this.handleChange} />
+              <textarea name="question" value={store.question} onChange={store.handleChange}/>
             </h2>
           </label>
-          <input type="submit" value="Submit" />
+          <Button>
+            <input type="submit" value="Submit"  />
+          </Button>
         </form>
       </div>
     )

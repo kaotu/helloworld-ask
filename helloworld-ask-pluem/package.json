@@ -9,7 +9,8 @@
     "gatsby-plugin-react-helmet": "^2.0.10",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "styled-components": "^3.3.3"
   },
   "keywords": [
     "gatsby"
