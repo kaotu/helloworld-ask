@@ -12,14 +12,17 @@ const Ques = styled.div`
   text-align: center;
   padding: 0.2em;
 `
-
-const SecondPage = () => (
-  <div>
-    <h1>Modurator Page</h1>
-    <h3>Question</h3>
-    <Ques>How to use this Ask</Ques>
-    <Link to="/">Go back to the homepage</Link>
-  </div>
-)
+class SecondPage extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Modurator Page</h1>
+        <h3>Question</h3>
+        <Ques>How to use this Ask</Ques>
+        <Link to="/">Go back to the homepage</Link>
+      </div>
+    )
+  }
+}
 
 export default SecondPage
