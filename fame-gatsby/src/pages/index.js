@@ -12,8 +12,13 @@ class Question {
   }
 
   @action
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault()
+    console.log('question : ', this.question)
+    let data = await axios.post('http://localhost:3001/question', {
+      question: this.question,
+    })
+    console.log(data)
   }
 }
 
