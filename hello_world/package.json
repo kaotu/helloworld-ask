@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
