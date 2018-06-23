@@ -1,33 +1,49 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import { observable, action } from 'mobx'
+import { observer, inject } from 'mobx-react'
+import axios from 'axios'
 
-class IndexPage extends React.Component {
-  state = {
-    count: 0,
-    que: '',
+class Question {
+  @observable question = ''
+  @observable count = 0
+
+  @action
+  handleChange = e => {
+    this[e.target.name] = e.target.value
   }
 
-  handleClick = e => {
-    this.setState({
-      count: this.state.count + 1,
-      que: '',
+  @action
+  handleSubmit = async e => {
+    e.preventDefault()
+    console.log('question : ', this.question)
+    this.count++
+    let data = await axios.post('http://localhost:3001/question', {
+      question: this.question,
     })
+    console.log(data)
   }
+}
+
+const store = new Question()
+
+@observer
+class IndexPage extends React.Component {
   render() {
-    let { que } = this.state
     return (
       <div>
-        <h1>Enter Question: {this.state.count}</h1>
-        <form>
+        <h1>Enter Question: {store.count}</h1>
+        <form action="" onSubmit={store.handleSubmit}>
           <textarea
-            type="text"
-            placeholder="your quetion..."
-            value={que}
-            onChange={e => this.setState({ que: e.target.value })}
+            name="question"
+            placeholder="your question..."
+            value={store.question}
+            onChange={store.handleChange}
           />
+          <br />
+          <button type="submit">Send</button>
         </form>
 
-        <button onClick={this.handleClick}>send</button>
         <div>
           <Link to="/page-2/">Go to Admin page</Link>
         </div>
