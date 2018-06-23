@@ -28,6 +28,7 @@ class Question {
   handleSubmit = e => {
     e.preventDefault()
     console.log('qestion : ', this.question)
+    this.question = ''
   }
 }
 
@@ -44,11 +45,15 @@ class IndexPage extends React.Component {
           <label>
             <h2>
               Question :
-              <textarea name="question" value={store.question} onChange={store.handleChange}/>
+              <textarea
+                name="question"
+                value={store.question}
+                onChange={store.handleChange}
+              />
             </h2>
           </label>
           <Button>
-            <input type="submit" value="Submit"  />
+            <input type="submit" value="Submit" />
           </Button>
         </form>
       </div>
