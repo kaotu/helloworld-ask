@@ -12,7 +12,7 @@ jobs:
       - run:
         name: build docker
         command: |
-          docker build -t devask:v1
+          docker build -t devask:v1 .
       - run:
         name: deploy
         command: |
