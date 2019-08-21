@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   web:
-    image: devask:v1
+    image: kaotu/devask:v1
     container_name: dev_ask
     ports:
       - 3000:3000
