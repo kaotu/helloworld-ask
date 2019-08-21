@@ -9,13 +9,11 @@ jobs:
     working_dir: ./frontend
     steps:
       - checkout
-      - checkout
       - run:
         name: build docker
         command: |
           docker build -t devask:v1
-          
       - run:
         name: deploy
         command: |
-          docker-compose up
+          docker-compose up    
