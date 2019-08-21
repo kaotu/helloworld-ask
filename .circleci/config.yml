@@ -27,4 +27,7 @@ jobs:
       - run:
           name: ssh & deploy
           command: |
-              ssh centos@18.139.161.83     
+              scp ./frontend/docker-compose.yml centos@$IP_HOST
+              docker-compose pull
+              docker-compose up -d
+                 
