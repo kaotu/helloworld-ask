@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+  docker:
+    - image: circleci/node:9.9.0
+  working_dir: .
+  steps:
+    - checkout:
+    - run:
+      name: build docker
+      command: |
+        docker build -t devask:v1
+    - run:
+      name: deploy
+      docker-compose up
