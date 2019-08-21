@@ -14,4 +14,4 @@ jobs:
           name: build docker
           command: |
               cd frontend
-              docker ps
+              docker build -t devask:v1 .
