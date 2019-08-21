@@ -6,9 +6,8 @@ jobs:
         - ask4.0
     docker:
       - image: circleci/node:9.9.0
-    working_dir: .
     steps:  
-      - checkout:
+      - checkout
       - run:
         name: build docker
         command: |
