@@ -1,6 +1,9 @@
 version: 2
 jobs:
   build:
+  branches:
+    only:
+      - ask4.0
   docker:
     - image: circleci/node:9.9.0
   working_dir: .
