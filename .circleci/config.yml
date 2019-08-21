@@ -11,5 +11,5 @@ jobs:
       - checkout
       - run:
         name: build docker
-        command: ls
+        command: sh -c "ls"
              
