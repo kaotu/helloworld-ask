@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - ask4.0
+    docker:
+      - image: circleci/node:9.9.0
+    working_dir: ./frontend
+    steps:
+      - checkout
+      - run:
+        name: build docker
+        command: |
+          docker build -t devask:v1
+      - run:
+        name: deploy
+          docker-compose up
