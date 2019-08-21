@@ -8,6 +8,7 @@ jobs:
       - image: circleci/node:9.9.0
     working_dir: ./frontend
     steps:
+      - setup_remote_docker 
       - checkout
       - run:
           name: build docker
