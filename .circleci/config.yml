@@ -14,4 +14,3 @@ jobs:
           command: |
               cd frontend
               docker build -t devask:v1 .
-              docker-compose up
