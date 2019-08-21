@@ -17,3 +17,12 @@ jobs:
               docker build -t kaotu/devask:v1 .
               docker login -u="$DOCKER_USER" -p="$DOCKER_PASSWORD"
               docker push kaotu/devask:v1
+
+      - add_ssh_keys:
+          fingerprints:
+            - "60:9d:fa:65:a1:c6:3d:29:87:c0:ae:48:0e:34:5c:42"
+            
+      - run:
+          name: ssh & deploy
+          command: |
+              ssh centos@18.139.161.83     
