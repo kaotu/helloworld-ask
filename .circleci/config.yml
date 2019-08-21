@@ -28,6 +28,6 @@ jobs:
           name: ssh & deploy
           command: |
               scp ./frontend/docker-compose.yml centos@$IP_HOST:/home/centos/docker-compose.yml
-              docker-compose pull
-              docker-compose up -d
+              ssh centos@$IP_HOST 'docker-compose pull'
+              ssh centos@$IP_HOST 'docker-compose up -d'
                  
