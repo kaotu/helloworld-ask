@@ -14,4 +14,6 @@ jobs:
           name: build docker
           command: |
               cd frontend
-              docker build -t devask:v1 .
+              docker build -t kaotu/devask:v1 .
+              docker login -u="$DOCKER_USER" -p="$DOCKER_PASSWORD"
+              docker push kaotu/devask:v1
