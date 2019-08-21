@@ -11,7 +11,5 @@ jobs:
       - checkout
       - run:
         name: build docker
-        command: |
-            docker build -t devask:v1 .
-            docker-compose up
+        command: docker build -t devask:v1 .
              
