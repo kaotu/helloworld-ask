@@ -1,14 +1,14 @@
-pipeline{
+pipeline {
     agent any
     stages{
         stage('Change directory'){
-            step{
+            steps{
                 sh 'cd ./frontend'
             }
         }
 
         stage('Docker compose up'){
-            step{
+            steps{
                 sh 'docker-compose up -d'
             }
         }
