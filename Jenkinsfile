@@ -7,7 +7,7 @@ pipeline {
         stage('Docker compose up'){
             steps{
                 sh 'cd ./frontend'
-                sh 'docker-compose up -d'
+                sh 'ls -al'
             }
         }
     }
