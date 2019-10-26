@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        PATH = "$PATH:/usr/bin"
+        PATH = "$PATH:/usr/local/bin/docker-compose"
     }
     stages{
         stage('Docker compose up'){
